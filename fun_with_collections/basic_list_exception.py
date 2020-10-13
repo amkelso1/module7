@@ -1,9 +1,17 @@
+"""
+Author:Alex Kelso
+Date:10/12/2020
+
+program: basic_list_exception.py
+purpose:
+"""
+
 
 def make_list():
     u_list = []
     for i in range(0, 3):
         try:
-            u_input = int(input())
+            u_input = int(get_input())
             if u_input < 1 or u_input > 50:
                 raise ValueError
         except ValueError:
