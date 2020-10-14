@@ -7,6 +7,7 @@
 FILE_NAME = 'student_info.txt'
 MAX = 50
 MIN = 1
+IOERROR_MES = 'Cannot open file on file system'
 
 
 def write_to_file(*args):
@@ -42,11 +43,17 @@ def get_student_info(**kwargs):
 
 
 def read_from_file():
-    pass
+    try:
+        with open(FILE_NAME, 'r') as f:
+            read_line = f.read()
+            print(read_line)
+    except IOError:
+        print(IOERROR_MES)
 
 
 if __name__ == '__main__':
     get_student_info(first_name='Alex', last_name='Kelso')
     get_student_info(first_name='Marco', last_name='Polo')
-    #read_from_file()
+    input('Hold...')
+    read_from_file()
     input('Press any key to end')
